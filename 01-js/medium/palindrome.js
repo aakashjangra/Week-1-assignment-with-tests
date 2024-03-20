@@ -7,7 +7,31 @@
 */
 
 function isPalindrome(str) {
+  let s = 0, e = str.length - 1;
+
+  str = str.toLowerCase();
+
+  while(s < e){
+
+    const ecc = str.charCodeAt(e);
+    const scc = str.charCodeAt(s);
+
+    if(str.charAt(s) === ' ' || !((scc > 47 && scc < 58) || ( scc > 96 && scc < 123))){
+      s++;
+      continue;
+    } 
+    if(str.charAt(e) === ' ' || !((ecc > 47 && ecc < 58) || (ecc > 96 && ecc < 123))){
+      e--;
+      continue;
+    }
+    if(str.charAt(s) !== str.charAt(e)) return false;
+    s++;
+    e--;
+  }
+
   return true;
 }
+
+console.log(isPalindrome('akashsAka'))
 
 module.exports = isPalindrome;

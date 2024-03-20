@@ -8,5 +8,15 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    let sum = 0;
+    let startTime = Date.now();
+    
+    for(let i = 0; i < n; i++) sum += i;
+
+    let endTime = Date.now();
+
+    return (endTime - startTime)/1000 + ' seconds'; //time in ms (seconds)
 }
+
+let n = 886969999; //change input to see different results
+console.log(`time of execution for sum of ${n} is - `, calculateTime(n))
